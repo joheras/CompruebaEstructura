@@ -2,4 +2,4 @@ Esta aplicación permite comprobar una estructura de ficheros proporcionada medi
 
 La aplicación está siendo utilizada para validar la entrega de prácticas de la asignatura de Programación Orientada a Objetos de los grados de Ingeniería Informática y Matemáticas de la Universidad de La Rioja. 
 
-El ejecutable se puede descargar de la carpeta dist que contiene ejemplos de estructuras de ficheros a validar. 
+El ejecutable se puede descargar de la carpeta dist. Los ficheros de configuración se encuentran en la carpeta config_files. 
