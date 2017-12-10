@@ -58,14 +58,14 @@ public class EstructuraFicheros extends javax.swing.JFrame {
                 System.exit(0);
             }
 
-        }else{
-             JOptionPane.showMessageDialog(null,
+        } else {
+            JOptionPane.showMessageDialog(null,
                     "Debes descargar el fichero con la estructura de prácticas\n"
-                            + "e incluirlo en la misma carpeta que este ejecutable.",
+                    + "e incluirlo en la misma carpeta que este ejecutable.",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
-              System.exit(0);
-        
+            System.exit(0);
+
         }
 
     }
@@ -115,12 +115,11 @@ public class EstructuraFicheros extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCheckStructure))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jTextField1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSelectDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonCheckStructure, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSelectDirectory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,12 +152,16 @@ public class EstructuraFicheros extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSelectDirectoryActionPerformed
 
     private static ArrayList<String> readListofFilesFromFile(String path) throws FileNotFoundException, IOException {
+
         ArrayList<String> result = new ArrayList<>();
-        FileReader in = new FileReader(path);
-        BufferedReader br = new BufferedReader(in);
-        String line;
-        while ((line = br.readLine()) != null) {
-            result.add(line);
+        if ((new File(path)).exists()) {
+
+            FileReader in = new FileReader(path);
+            BufferedReader br = new BufferedReader(in);
+            String line;
+            while ((line = br.readLine()) != null) {
+                result.add(line);
+            }
         }
         return result;
     }
